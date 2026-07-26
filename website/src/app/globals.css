@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Design tokens — Phase 5 design system (docs/05-design-system.md).
+   Single source of truth: change a value here and the whole site follows. */
+@theme {
+  --color-accent: #e0531e;
+  /* accent-text: same brand hue, darkened until it clears WCAG AA (4.5:1) for
+     small text on the cream background — the base accent only reaches
+     3.59:1, which is fine for icons/borders/large headings (3:1 minimum) but
+     fails for normal-size text. Use this instead of `text-accent` for any
+     always-visible (non-hover) small text — links, button labels, tags. */
+  --color-accent-text: #be471a;
+  --color-background: #fbf6e9;
+  --color-surface: #ffffff;
+  --color-ink: #211c16;
+  --color-muted: #6e6558;
+  --color-border: #e5dfd1;
+  --color-success: #3b7a3f;
+  --color-error: #b3261e;
+
+  --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-control: 8px;
+  --radius-card: 12px;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* WCAG 2.4.7 (Focus Visible) — a global, on-brand keyboard focus ring.
+   Found via real keyboard testing: Tailwind's preflight resets default
+   button/link outlines, and none of this site's custom buttons (filter
+   chips, CopyButton, etc.) had added their own focus style back — so tabbing
+   to them showed literally no visible indicator at all (confirmed via
+   getComputedStyle: outline "none", boxShadow "none"). One global rule
+   fixes every interactive element at once, present and future, rather than
+   patching each component's className individually. `:focus-visible` (not
+   plain `:focus`) so it only shows for keyboard/programmatic focus, not
+   every mouse click — the standard modern approach. Elements that
+   deliberately opt out via Tailwind's `focus:outline-none` (e.g. the
+   skip-link target, `<main>`) still win: that utility targets the broader
+   `:focus`, which has higher specificity than this bare pseudo-class. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Phase 5 section 6 — honor the visitor's OS "reduce motion" setting. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
