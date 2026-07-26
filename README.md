@@ -4,10 +4,10 @@
 > two minutes. Designed and built end-to-end as a solo project — from UX research to a
 > deployed, responsive Next.js application.
 
-**🚧 Status: All 10 pages built and running locally — not yet deployed.** Follow the full design
-& build process in [`/docs`](docs).
+**✅ Status: Live and fully deployed.** Follow the full design & build process in [`/docs`](docs),
+or read the [**Case Study**](docs/case-study.md) for the short version.
 
-<!-- Once deployed, add: **🔗 Live site:** https://... -->
+**🔗 Live site:** https://leverage-report-website.vercel.app
 
 ---
 
@@ -32,8 +32,8 @@ honest, free place that turns the idea into tools you can actually use.** This s
 - 📋 **Prompt Library** + **Message Templates** — 13 + 12 tested prompts/scripts, searchable,
   copy-and-use
 - 📖 **AI Terms Glossary** — 16 plain-English AI term definitions, also the site's SEO entry point
-- ✉️ **Weekly email signup** — UI built; honestly tells visitors it isn't connected to a real
-  provider yet rather than faking a confirmation (see `website/src/components/EmailSignup.tsx`)
+- ✉️ **Weekly email signup** — connected to a real provider (MailerLite) via a server-side API
+  route; the key is never exposed to the browser (see `website/src/app/api/subscribe/route.ts`)
 
 Every page is responsive (mobile + desktop), animated with Framer Motion (honoring
 `prefers-reduced-motion`), and built from a shared Figma design system.
@@ -45,7 +45,8 @@ Every page is responsive (mobile + desktop), animated with Framer Motion (honori
 | **Frontend** | Next.js · React · TypeScript · Tailwind CSS |
 | **Motion** | Framer Motion |
 | **Charts** | Recharts |
-| **Hosting** | Vercel (not yet deployed) |
+| **Email** | MailerLite (server-side API route) |
+| **Hosting** | Vercel — **[live →](https://leverage-report-website.vercel.app)** |
 
 ## The process (how this was built)
 This project follows a real 10-phase product workflow. Each phase is documented in [`/docs`](docs):
@@ -59,8 +60,8 @@ This project follows a real 10-phase product workflow. Each phase is documented 
 7. [Prototype](docs/07-prototype.md) — ✅ 53 click connections, two independent responsive flows, try it in Figma Present mode
 8. Usability testing — deliberately deferred (see [`docs/09-development.md`](docs/09-development.md)); real usability pass planned for Phase 10 on the coded site instead
 9. [Development](docs/09-development.md) — ✅ **all 10 pages built**: Homepage, all 4 tools, Prompt Library, Message Templates, Glossary, Tools Index, About
-10. Testing & deployment *(next: real email-signup backend, then deploy to Vercel)*
-+ a final **Case Study**.
+10. Testing & deployment — ✅ full pre-deploy QA pass, deployed live to Vercel
++ [**Case Study**](docs/case-study.md) — the full story, Problem → Research → Design decisions → Result
 
 ## Repository structure
 ```

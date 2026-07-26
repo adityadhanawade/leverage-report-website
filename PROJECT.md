@@ -109,7 +109,8 @@ For each phase: what to produce + the tool + the recruiter talking point.
       log) ✅ done. Step 13 (accessibility audit — broken skip link, accent color failing WCAG AA
       at small sizes, invisible keyboard focus ring, all fixed — see progress log) ✅ done.
       App lives in `website/`.
-- [ ] **Phase 10 — Test & Deploy:** responsive/QA check, deploy live to Vercel (free).
+- [x] **Phase 10 — Test & Deploy:** responsive/QA check, deploy live to Vercel (free). ✅ DONE
+      2026-07-26. Live at https://leverage-report-website.vercel.app.
 
 Final portfolio artifact: a **Case Study** (Problem -> Research -> Design decisions & why -> Result).
 
@@ -683,3 +684,47 @@ _Append newest at the bottom. Date + what was decided/done + what's next._
   **NEXT STEP:** the site is confirmed clean and ready. Deploy to Vercel (Phase 10) — remaining
   decision: connect a GitHub repo (recommended, gives auto-deploys on push) or a one-off CLI
   deploy; also set `NEXT_PUBLIC_SITE_URL` to the real Vercel URL once assigned.
+- **2026-07-26 (session 3, cont.):** **Phase 10 (Deploy) ✅ DONE — the site is live and the
+  entire original project scope is complete.** `gh auth status` showed the user already had an
+  authenticated GitHub CLI, so with explicit permission (public repo, confirmed via question,
+  not assumed) initialized git at the repo root, verified `.env.local`/`node_modules`/build
+  artifacts were correctly excluded via the existing `.gitignore` before staging (91 real files
+  committed, nothing sensitive), and pushed to a new public repo:
+  https://github.com/adityadhanawade/leverage-report-website. User then created a Vercel account
+  (Google login, not GitHub-linked — had to separately authorize the Vercel GitHub App to import
+  the repo) and worked through the New Project screen live with step-by-step screen-by-screen
+  guidance. **One real deploy failure, diagnosed and fixed live:** first deploy failed with
+  `Error: No Output Directory named "public" found` — root cause was the **Framework Preset**
+  staying on "Other" instead of auto-switching to "Next.js" (a separate field from Root
+  Directory, easy to miss since Root Directory was already correctly set to `website`). Walked
+  the user to Settings → General → Framework Settings → changed preset to Next.js → redeployed →
+  succeeded (the 2 lines flagged as errors in the deploy log were actually yellow warnings about
+  `outputFileTracingRoot`/`turbopack.root` mismatch, non-fatal, build compiled fine).
+  **Verified the live production deployment for real, not just "Ready" status:** loaded the
+  actual `https://leverage-report-website.vercel.app` URL, confirmed zero console errors on both
+  the homepage and a tool page, and — the real test — POSTed a genuine request to the live
+  `/api/subscribe` route and got back `200 {"ok":true}`, confirming `MAILERLITE_API_KEY` made it
+  into the Vercel production environment correctly, not just locally. Then added
+  `NEXT_PUBLIC_SITE_URL` as a second env var (Production + Preview) pointing at the real Vercel
+  URL, redeployed, and confirmed via a live fetch of `/sitemap.xml` that all 10 URLs now use the
+  real domain instead of the placeholder used during local dev.
+  **The site is live, functional, and verified end-to-end: https://leverage-report-website.vercel.app**
+  **All 8 original locked deliverables + Phases 1-10 are now fully complete.**
+  **NEXT STEP:** nothing required from the original scope remains. Natural next options: write
+  the final portfolio **Case Study** (Problem → Research → Design decisions & why → Result, per
+  section 6), a real device QA pass on the live URL (phone/tablet, not just this session's
+  browser tool), or the user simply uses/shares the site as-is.
+- **2026-07-26 (session 3, cont.):** Wrote the final portfolio **Case Study** at
+  `docs/case-study.md` — Problem → Research → Design decisions & why → Result, per the format
+  locked in section 6. Drew directly from the actual Phase 1/2/5 docs and the full PROGRESS LOG
+  rather than re-summarizing from memory, so every specific claim (colors, persona details,
+  screen/connection counts, the honest-copy-departure decision, the accessibility and bug-hunt
+  findings) traces back to a real artifact instead of being invented for the writeup. Also
+  brought the public-facing root `README.md` current — it still said "not yet deployed" and
+  described the email signup as intentionally disconnected, both stale since this session's
+  deploy and MailerLite work; updated the status banner, live-site link, tech stack table, email
+  bullet, and phase 9/10 checklist entries, and linked the new Case Study from both the phase
+  list and the top status line.
+  **NEXT STEP:** nothing remains from the original scope or the portfolio deliverables list.
+  Optional future work only: a real device QA pass on the live URL, or user-feedback-driven
+  iteration once the site gets real traffic from Instagram (see Case Study §6).
