@@ -144,10 +144,10 @@ Two rounds, two different methods, chosen deliberately rather than treated as in
   way. Result: every tested tool succeeded end-to-end — found from the homepage, filled in,
   correct output produced, no dead links or wrong navigation — which validated both the
   information architecture (Phase 3) and the tool logic itself. It also surfaced two real
-  findings: the Subscription-Leak Calculator's first input can land in the price field before
-  the name field, and a repeated retype/backspace pattern on text inputs that's flagged but not
-  yet confirmed as a real issue (no audio was captured, so it can't yet be told apart from
-  ordinary phone-typing friction).
+  findings: the Subscription-Leak Calculator's first input could land in the price field before
+  the name field — **since fixed** (see below) — and a repeated retype/backspace pattern on
+  text inputs that's flagged but not yet confirmed as a real issue (no audio was captured, so
+  it can't yet be told apart from ordinary phone-typing friction).
 - **Round 2 — heuristic evaluation.** The two pages Round 1 didn't reach (the AI Terms Glossary
   and the email signup) were walked through directly against Nielsen's usability heuristics
   instead of with a live tester, since a second real-user round wasn't feasible in the
@@ -155,6 +155,14 @@ Two rounds, two different methods, chosen deliberately rather than treated as in
   the case study is explicit about which pages got which treatment. No issues found: search/
   filter/empty-states all behave correctly, and the signup form has a real label plus
   client-side validation that blocks bad input before it reaches the server.
+
+**The subscription-field finding, fixed:** root-caused by direct measurement rather than a
+guess — on a real 375px mobile viewport, the Name input rendered at just 55px wide (its own
+placeholder didn't even fit), squeezed by four fixed-width siblings sharing one flex row, which
+is exactly why a tester's first tap landed on the Price field instead. Fix forces the Name field
+onto its own full-width line below the `md` breakpoint only; desktop, which was never broken,
+is untouched. Verified by DOM measurement before and after at both breakpoints (mobile: 55px →
+301.6px; desktop: unchanged at 309.6px) rather than eyeballed.
 
 Full write-up, including a timestamped findings log: `docs/08-usability-testing.md`.
 
@@ -166,7 +174,7 @@ Western user has tested the site yet. That gap is named explicitly rather than p
 ## 7. What's next
 
 The main open item is closing that last gap: real feedback from a Western tester, ideally once
-the site gets organic traffic from the Instagram audience it was built for. The two flagged
-findings from Round 1 (subscription calculator field order, the input-retyping pattern) are
-logged and ready to act on but intentionally not yet fixed, so nothing gets patched twice on an
+the site gets organic traffic from the Instagram audience it was built for. Of the two Round-1
+findings, the subscription calculator's field-order issue is fixed; the input-retyping pattern
+is logged and ready to act on but intentionally not yet fixed, so nothing gets patched twice on an
 incomplete picture.

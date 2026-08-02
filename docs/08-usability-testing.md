@@ -64,9 +64,19 @@ see Gaps below.
   recording (Whisper found no speech), so there is no narration to tell "confused" apart from
   "just a slow typer." Needs a narrated re-test before this is actionable as a real bug.
 - **F2 — Subscription-Leak Calculator: tester's first input landed in the price ($) field
-  before the Name field.** This is a concrete, checkable UI issue — worth checking whether the
-  row's tap/click target autofocuses the wrong input on mobile. Real, not just a typing quirk,
-  because it showed a consistent order (price first, then back to name), not random fumbling.
+  before the Name field. ✅ FIXED 2026-08-02.** Root cause confirmed by direct measurement,
+  not guessing: on a real 375px mobile viewport, the Name input rendered at **55px wide** —
+  its own placeholder text didn't fit, so it didn't read as a real input at all, while the
+  Price field ($, 80px) next to it looked like the obvious tappable control. Cause: the row
+  (`tools/subscriptions/page.tsx`) is `flex flex-wrap` with 5 siblings on one line; only Name
+  was `flex-1`, so the four fixed-width siblings (Price, Period select, Trash button) squeezed
+  it down on narrow screens. Fix: Name's wrapper now forces `w-full` below the `md` breakpoint,
+  so it takes its own full-width line and Price/Period/Trash wrap to a second line beneath it;
+  at `md`+ it reverts to the original `flex-1` single-line layout (desktop was never broken).
+  Verified by direct DOM measurement before and after, at both breakpoints:
+  Name went from 55px → 301.6px on mobile (375px), and stayed correctly at 309.6px on desktop
+  (1280px, unchanged, same line as before). Live diff:
+  `website/src/app/tools/subscriptions/page.tsx` lines ~100–111.
 - **O1 — Multiple tabs, independent state, nothing persisted or synced between them.** Not a
   bug — this matches the site's own "Free, no login" design pillar (`05-design-system.md` /
   homepage trust row). Worth stating explicitly in the case study as an intentional tradeoff,

@@ -89,15 +89,23 @@ export default function SubscriptionCalculatorPage() {
                   <label className="sr-only" htmlFor={`${sub.id}-name`}>
                     Subscription name
                   </label>
-                  {/* Wrapper carries the flex sizing (min-w-0 lets it shrink
-                      below its content's intrinsic width); the input just
-                      fills it at 100%. Works together with the grid-level
-                      minmax(0, Nfr)/grid-cols-1 fix above: that one stops a
-                      long, unbroken name from forcing the whole PAGE wider;
-                      this one stops the input from spilling past its own
-                      card once the page-level width is already constrained.
-                      Confirmed both matter via a 300-character name test. */}
-                  <div className="min-w-0 flex-1">
+                  {/* w-full below `md` forces this to take its own line in
+                      the flex-wrap row, pushing Price/Period/Trash onto a
+                      second line — otherwise, on a narrow phone, those three
+                      fixed-width siblings squeeze this flex-1 field down to
+                      ~55px (measured on a 375px viewport), so small its
+                      placeholder doesn't fit and it stops looking like a
+                      real input. A Round-1 usability recording showed a
+                      tester typing into the Price field first because of
+                      exactly this — see docs/08-usability-testing.md (F2).
+                      At `md`+ there's room for one line, so it reverts to
+                      flex-1 (min-w-0 still needed there — see the
+                      grid-level minmax(0, Nfr)/grid-cols-1 fix above, which
+                      stops a long unbroken name from forcing the whole page
+                      wider; this stops the input spilling past its own card
+                      once page width is already constrained). Confirmed via
+                      a 300-character name test. */}
+                  <div className="w-full min-w-0 md:w-auto md:flex-1">
                     <input
                       id={`${sub.id}-name`}
                       type="text"
