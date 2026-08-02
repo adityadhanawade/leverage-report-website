@@ -90,7 +90,30 @@ For each phase: what to produce + the tool + the recruiter talking point.
       screens + 31 across the 7 desktop screens, two independent self-contained flows (mobile
       and desktop), 2 flow starting points. Try it: open "Mockups" page, select Home Mobile OR
       Home Desktop, hit Present. Spec + connection map + known gaps: `docs/07-prototype.md`.
-- [ ] **Phase 8 — Test & Refine:** informal usability testing + iterate.
+- [~] **Phase 8 — Test & Refine:** informal usability testing + iterate.
+      🚧 IN PROGRESS since 2026-08-02. Round 1 done: 2 unguided screen recordings (India-based
+      tester) analysed via the `teardown` tool, frame-by-frame. 3 of 5 planned tasks covered
+      (Subscription-Leak Calculator, AI Prompt Tool, Raise & Negotiation Builder + partial
+      Prompt Library browse). Both fully-tested tools succeeded end-to-end — no dead links, no
+      rage-clicking, no wrong navigation. 2 real findings logged (not yet fixed): F1 — repeated
+      retype/backspace on text inputs in both recordings (unconfirmed cause, no audio captured
+      to explain it); F2 — Subscription-Leak Calculator first input lands in the price field
+      before the Name field (concrete, checkable). Full write-up:
+      `docs/08-usability-testing.md`. **Round 2 still needed:** Glossary + Email signup tasks
+      (not attempted), narrated audio to confirm/rule out F1, and a separate Western-tester
+      round for language/currency/cultural friction (this round was structural/flow-only by
+      design — see doc). No code changes made yet; fixes deferred until the picture is
+      complete.
+      **Update 2026-08-02:** Ran a heuristic walkthrough (Nielsen heuristics, not user testing
+      — clearly labelled as a different method) on the 2 untested pages (Glossary, Email
+      signup) via live browser interaction. Zero issues found: Glossary search/filter/empty-state
+      all correct; email form has proper label + native validation that blocks bad input
+      client-side before it ever reaches the server. Successful-submission path was already
+      verified in the 2026-07-26 deploy session (real `200 {"ok":true}` from `/api/subscribe`),
+      not repeated to avoid a junk test subscriber. All 5 original tasks now have SOME coverage
+      (3 real user-tested, 2 heuristically reviewed). Still open: F1/F2 fixes not yet applied,
+      no narrated user session exists for the 2 heuristic-only pages, and no Western tester has
+      touched the site. Full write-up: `docs/08-usability-testing.md`.
 - [~] **Phase 9 — Development:** build the real site (Next.js/React/TS). CLAUDE BUILDS HERE.
       🚧 IN PROGRESS since 2026-07-25. Log: `docs/09-development.md`. Step 1 (foundation:
       scaffold + design tokens + fonts + verified build) ✅ done. Step 2 (real Homepage,
