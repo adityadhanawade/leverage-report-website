@@ -134,9 +134,39 @@ competitor analysis → IA → wireframes → design system → mockups → clic
 production engineering discipline (typed, linted, tested, accessible, deployed) — on the same
 project, built and shipped solo.
 
-## 6. What's next
+## 6. Usability testing
 
-Formal usability testing (Phase 8) was deliberately deferred in favor of the extensive
-self-testing and bug-hunting done during development and final QA — a conscious tradeoff for a
-solo v1, not an oversight. The natural next step is real-user feedback once the site starts
-getting traffic from the Instagram audience it was built for.
+Two rounds, two different methods, chosen deliberately rather than treated as interchangeable:
+
+- **Round 1 — real unguided user testing.** A tester was given 5 realistic tasks (e.g. "find
+  out if you're wasting money on subscriptions") with no guidance and no help mid-task, screen
+  recorded, then analysed frame-by-frame. Three of the five interactive tools were covered this
+  way. Result: every tested tool succeeded end-to-end — found from the homepage, filled in,
+  correct output produced, no dead links or wrong navigation — which validated both the
+  information architecture (Phase 3) and the tool logic itself. It also surfaced two real
+  findings: the Subscription-Leak Calculator's first input can land in the price field before
+  the name field, and a repeated retype/backspace pattern on text inputs that's flagged but not
+  yet confirmed as a real issue (no audio was captured, so it can't yet be told apart from
+  ordinary phone-typing friction).
+- **Round 2 — heuristic evaluation.** The two pages Round 1 didn't reach (the AI Terms Glossary
+  and the email signup) were walked through directly against Nielsen's usability heuristics
+  instead of with a live tester, since a second real-user round wasn't feasible in the
+  timeframe. This is a different, named method, not a substitute dressed up as user testing —
+  the case study is explicit about which pages got which treatment. No issues found: search/
+  filter/empty-states all behave correctly, and the signup form has a real label plus
+  client-side validation that blocks bad input before it reaches the server.
+
+Full write-up, including a timestamped findings log: `docs/08-usability-testing.md`.
+
+**What's honestly still open:** the retype-pattern finding from Round 1 is unconfirmed, no
+narrated session exists for the two heuristically-reviewed pages, and — notably, given the
+site's audience is Western/USD-based while testing was done with an India-based tester — no
+Western user has tested the site yet. That gap is named explicitly rather than papered over.
+
+## 7. What's next
+
+The main open item is closing that last gap: real feedback from a Western tester, ideally once
+the site gets organic traffic from the Instagram audience it was built for. The two flagged
+findings from Round 1 (subscription calculator field order, the input-retyping pattern) are
+logged and ready to act on but intentionally not yet fixed, so nothing gets patched twice on an
+incomplete picture.
