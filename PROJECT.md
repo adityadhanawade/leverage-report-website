@@ -111,9 +111,17 @@ For each phase: what to produce + the tool + the recruiter talking point.
       client-side before it ever reaches the server. Successful-submission path was already
       verified in the 2026-07-26 deploy session (real `200 {"ok":true}` from `/api/subscribe`),
       not repeated to avoid a junk test subscriber. All 5 original tasks now have SOME coverage
-      (3 real user-tested, 2 heuristically reviewed). Still open: F1/F2 fixes not yet applied,
-      no narrated user session exists for the 2 heuristic-only pages, and no Western tester has
-      touched the site. Full write-up: `docs/08-usability-testing.md`.
+      (3 real user-tested, 2 heuristically reviewed). Still open (at that point): F1/F2 fixes
+      not yet applied, no narrated user session exists for the 2 heuristic-only pages, and no
+      Western tester has touched the site. Full write-up: `docs/08-usability-testing.md`.
+      **Update 2026-08-02 (cont.):** F2 fixed. Root cause confirmed by direct measurement (not
+      guessed): Name input on the Subscription-Leak Calculator rendered at 55px wide on a real
+      375px mobile viewport — squeezed by 4 fixed-width siblings sharing one flex row — which
+      is exactly why the Round-1 tester's first input landed in the Price field instead. Fix:
+      `w-full` below `md` forces Name onto its own line on mobile; desktop (`md`+) unchanged.
+      Verified by DOM measurement before/after at both breakpoints, not just visually assumed:
+      mobile Name width 55px → 301.6px; desktop unchanged at 309.6px. Still open: F1 (needs a
+      narrated re-test to confirm/rule out), no Western tester yet.
 - [~] **Phase 9 — Development:** build the real site (Next.js/React/TS). CLAUDE BUILDS HERE.
       🚧 IN PROGRESS since 2026-07-25. Log: `docs/09-development.md`. Step 1 (foundation:
       scaffold + design tokens + fonts + verified build) ✅ done. Step 2 (real Homepage,
