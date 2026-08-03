@@ -1,2 +1,7 @@
 # Local analysis working files — not portfolio artifacts
 teardown-studies/
+
+# Beginner-level personal study notes — local only by default (see
+# feedback_teach_every_decision.md). Un-ignore deliberately per-project if
+# ever polished enough to show recruiters.
+NOTES/
