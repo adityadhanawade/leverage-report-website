@@ -58,7 +58,7 @@ This project follows a real 10-phase product workflow. Each phase is documented 
 5. [Design System](docs/05-design-system.md) — ✅ color tokens + type scale, built in Figma
 6. [High-Fidelity Mockups](docs/06-high-fidelity-mockups.md) — ✅ 14 screen variants (mobile + desktop) built in Figma
 7. [Prototype](docs/07-prototype.md) — ✅ 53 click connections, two independent responsive flows, try it in Figma Present mode
-8. Usability testing — deliberately deferred (see [`docs/09-development.md`](docs/09-development.md)); real usability pass planned for Phase 10 on the coded site instead
+8. [Usability Testing](docs/08-usability-testing.md) — 🚧 in progress: Round 1 done (3 of 5 tasks), Round 2 planned
 9. [Development](docs/09-development.md) — ✅ **all 10 pages built**: Homepage, all 4 tools, Prompt Library, Message Templates, Glossary, Tools Index, About
 10. Testing & deployment — ✅ full pre-deploy QA pass, deployed live to Vercel
 + [**Case Study**](docs/case-study.md) — the full story, Problem → Research → Design decisions → Result
