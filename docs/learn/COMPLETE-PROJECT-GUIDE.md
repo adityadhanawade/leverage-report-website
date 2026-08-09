@@ -370,17 +370,23 @@ The fix was to build proper desktop destinations, and the rule learned was recor
 
 ## Phase 8 — Test & refine
 
-**Deliberately deferred, and documented as a conscious decision rather than an
-oversight.** Extensive UX issues were already caught and fixed live while building and
-testing the prototype, so formal usability testing was traded for a heavier
-self-testing and bug-hunting pass on the *coded* site (see section 9).
+**Initially deferred during the coded build, then actually run** once the site was live
+(see `docs/08-usability-testing.md`): a real unguided user test (5 tasks, screen
+recorded, 3 of 4 tools covered) plus a heuristic evaluation of the two remaining pages.
+One real bug was found and fixed — a mobile input field squeezed to 55px wide — verified
+by DOM measurement before and after. One finding (a retype/backspace pattern) is logged
+but not yet confirmed, and no Western tester has tested the site yet despite that being
+the real target audience; both gaps are stated openly rather than papered over.
 
-> **How to say this in an interview:** *"Phase 8 was formal usability testing and I
-> deliberately deferred it. For a solo v1 with no test participants, I traded it for a
-> much heavier QA pass on the real build — a 20-input regression battery on the prompt
-> engine, an accessibility audit, and an XSS pass. Real-user testing is the honest next
-> step, and it's written up as such."* That answer is far stronger than pretending you
-> ran usability sessions.
+> **How to say this in an interview:** *"I initially deferred formal usability testing
+> during the coded build — as a solo v1 with no test participants at that stage, I
+> traded it for a heavier QA pass on the build itself: a 20-input regression battery on
+> the prompt engine, an accessibility audit, and an XSS pass. Once the site was live, I
+> ran real usability testing — a screen-recorded unguided task test plus a heuristic
+> evaluation — found and fixed a real mobile input bug, and I'm upfront that one finding
+> is still unconfirmed and I haven't tested with a Western user yet, which is the site's
+> actual audience."* That's a stronger answer than either pretending testing never
+> happened or overclaiming it's fully done.
 
 ## The documentation discipline
 
@@ -1945,12 +1951,15 @@ structure up front is why every tool has its own shareable URL, and that decisio
 would have been painful to retrofit.
 
 **Q: Did you do user testing?**
-Not formal usability testing — that was Phase 8, and I deliberately deferred it. As a
-solo project with no test participants, I traded it for much heavier self-testing on
-the real build: a 20-input regression battery on the prompt engine, a full
-accessibility audit, and an XSS pass on every input. It's documented as a conscious
-tradeoff, not an oversight, and real-user testing is the stated next step. I'd rather
-tell you that than claim sessions I didn't run.
+Yes, once the site was live — Phase 8. I initially deferred it during the coded build
+(traded it for much heavier self-testing on the real build: a 20-input regression
+battery on the prompt engine, a full accessibility audit, and an XSS pass on every
+input), then ran a real unguided task-based test with screen recording, plus a
+heuristic evaluation of the pages the real test didn't reach. It found and fixed a real
+bug — a mobile input field squeezed to 55px wide. I'm upfront that one finding is still
+unconfirmed and that no Western user has tested it yet, even though that's the site's
+actual target audience. I'd rather tell you the real, still-open picture than round it
+up to "fully tested."
 
 **Q: Tell me about the personas.**
 They're proto-personas, not interview-based personas — built from the real Instagram
