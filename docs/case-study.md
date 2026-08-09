@@ -2,7 +2,7 @@
 
 **A free AI-money toolkit, designed and built solo from brief to production.**
 
-Live site: https://leverage-report-website.vercel.app
+Live site: https://theleveragereport.me
 Source code: https://github.com/adityadhanawade/leverage-report-website
 Design file (Figma): https://www.figma.com/design/nLgaNdrpRv8b15FU8PwEzc
 

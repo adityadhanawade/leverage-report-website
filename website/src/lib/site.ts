@@ -10,12 +10,11 @@ export const site = {
   instagramHandle: "@the.leverage.report",
   instagramUrl: "https://www.instagram.com/the.leverage.report/",
   /**
-   * Placeholder until Phase 10 deploy — a free *.vercel.app subdomain per
-   * PROJECT.md's hard constraint (no paid domain required). Update this one
-   * line (or set NEXT_PUBLIC_SITE_URL) once the real deploy URL exists;
-   * metadataBase, sitemap.ts, and robots.ts all read from here.
+   * Custom domain claimed via GitHub Student Developer Pack (Namecheap .me
+   * offer), pointed at the Vercel deploy. metadataBase, sitemap.ts, and
+   * robots.ts all read from here.
    */
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://theleveragereport.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://theleveragereport.me",
 } as const;
 
 export type IconName =

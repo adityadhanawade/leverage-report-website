@@ -7,7 +7,7 @@
 **✅ Status: Live and fully deployed.** Follow the full design & build process in [`/docs`](docs),
 or read the [**Case Study**](docs/case-study.md) for the short version.
 
-**🔗 Live site:** https://leverage-report-website.vercel.app
+**🔗 Live site:** https://theleveragereport.me
 
 ---
 
@@ -46,7 +46,7 @@ Every page is responsive (mobile + desktop), animated with Framer Motion (honori
 | **Motion** | Framer Motion |
 | **Charts** | Recharts |
 | **Email** | MailerLite (server-side API route) |
-| **Hosting** | Vercel — **[live →](https://leverage-report-website.vercel.app)** |
+| **Hosting** | Vercel — **[live →](https://theleveragereport.me)** |
 
 ## The process (how this was built)
 This project follows a real 10-phase product workflow. Each phase is documented in [`/docs`](docs):
