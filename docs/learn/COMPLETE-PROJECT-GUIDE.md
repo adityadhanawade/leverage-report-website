@@ -4,7 +4,7 @@
 
 ---
 
-**Live site:** https://leverage-report-website.vercel.app
+**Live site:** https://theleveragereport.me
 **Source code:** https://github.com/adityadhanawade/leverage-report-website
 **Design file (Figma):** https://www.figma.com/design/nLgaNdrpRv8b15FU8PwEzc
 
@@ -427,7 +427,7 @@ TypeScript, or Tailwind. This is the single most important fact in this document
 When someone types your URL:
 
 ```
-1. Browser  →  "GET https://leverage-report-website.vercel.app/"
+1. Browser  →  "GET https://theleveragereport.me/"
 2. Vercel's server receives it
 3. Server responds with HTML  →  Browser
 4. Browser reads the HTML, sees it needs CSS and JS, requests those too
@@ -2454,5 +2454,5 @@ Tick these off. If you can do all of them, you know this project.
 
 ---
 
-*End of guide. Live site: https://leverage-report-website.vercel.app —
+*End of guide. Live site: https://theleveragereport.me —
 Source: https://github.com/adityadhanawade/leverage-report-website*

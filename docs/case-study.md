@@ -117,7 +117,7 @@ A few decisions worth calling out specifically:
 
 ## 5. Result
 
-**The site is live and fully verified in production:** https://leverage-report-website.vercel.app
+**The site is live and fully verified in production:** https://theleveragereport.me
 
 - All 8 originally locked deliverables shipped and functional.
 - Clean TypeScript, clean lint, clean production build across all 10 pages.
