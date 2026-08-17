@@ -2,7 +2,7 @@
 
 **Single source of truth for this project. Read this first when resuming in any new session.**
 
-To resume in a new session, just tell Claude: **"Continue the Leverage Report website project — read PROJECT.md."**
+To resume in a new session, just say: **"Continue the Leverage Report website project — read PROJECT.md."**
 
 ---
 
@@ -122,7 +122,7 @@ For each phase: what to produce + the tool + the recruiter talking point.
       Verified by DOM measurement before/after at both breakpoints, not just visually assumed:
       mobile Name width 55px → 301.6px; desktop unchanged at 309.6px. Still open: F1 (needs a
       narrated re-test to confirm/rule out), no Western tester yet.
-- [~] **Phase 9 — Development:** build the real site (Next.js/React/TS). CLAUDE BUILDS HERE.
+- [~] **Phase 9 — Development:** build the real site (Next.js/React/TS).
       🚧 IN PROGRESS since 2026-07-25. Log: `docs/09-development.md`. Step 1 (foundation:
       scaffold + design tokens + fonts + verified build) ✅ done. Step 2 (real Homepage,
       responsive) ✅ done. Step 3 (⭐ AI Prompt Tool, free-forever in-browser engine) ✅ done.
@@ -185,15 +185,15 @@ planKey `team::1426161126578368117`). Always record the resulting Figma file nam
 BOTH this file (section 9 links table) and README.md so it's part of the visible project record.
 
 ## 8b. Tooling plan (per phase)
-- **Phases 1-3 (Brief, Research, IA):** written docs (Claude generates WITH the user) +
+- **Phases 1-3 (Brief, Research, IA):** written docs (drafted WITH the user) +
   optionally FigJam (free) for the sitemap/flow diagrams. Saved as artifact files in this repo.
 - **Phases 4-8 (Wireframes, Design System, Mockups, Prototype, Testing):** **Figma (free)** —
   the industry-standard UI/UX tool; produces the artifacts recruiters expect. USER NEEDS A
-  FREE FIGMA ACCOUNT. Claude cannot click inside Figma, but generates all content/specs
+  FREE FIGMA ACCOUNT. The AI tool cannot click inside Figma, but generates all content/specs
   (layout box-by-box, exact colors/fonts/spacing, component list, copy) for the user to place.
-- **Phases 9-10 (Development, Deploy):** Claude builds in code (Next.js/React/TS proposed);
-  deploy to Vercel (free). Claude can also produce a live coded preview/mockup here.
-- Case study writeup: Claude drafts from the recorded artifacts at the end.
+- **Phases 9-10 (Development, Deploy):** built in code (Next.js/React/TS proposed);
+  deploy to Vercel (free). Can also produce a live coded preview/mockup here.
+- Case study writeup: drafted from the recorded artifacts at the end.
 
 ---
 
